@@ -1,0 +1,514 @@
+ASUS@DESKTOP-U8E7MKG MINGW64 ~
+$ cd desktop
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop
+$ mkdir git
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop
+$ cd git
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git
+$ git init
+Initialized empty Git repository in C:/Users/ASUS/Desktop/git/.git/
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git status
+On branch master
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ touch 1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ echo "hello">>1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git add .
+warning: in the working copy of '1.txt', LF will be replaced by CRLF the next time Git touches it
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git commit -m "changes 1"
+[master (root-commit) 46f19d6] changes 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ echo "world">>1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git add .
+warning: in the working copy of '1.txt', LF will be replaced by CRLF the next time Git touches it
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git commit -m "changes 2"
+[master 2da64a2] changes 2
+ 1 file changed, 1 insertion(+)
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git log
+commit 2da64a20df8661872b908c89ddbd35fdb73962f6 (HEAD -> master)
+Author: EgorK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:23:53 2022 +0300
+
+    changes 2
+
+commit 46f19d619f0275b9b97ec87ee6565a660b3a6f0a
+Author: EgorK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:23:10 2022 +0300
+
+    changes 1
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git config --list
+diff.astextplain.textconv=astextplain
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+http.sslbackend=openssl
+http.sslcainfo=C:/Program Files/Git/mingw64/ssl/certs/ca-bundle.crt
+core.autocrlf=true
+core.fscache=true
+core.symlinks=false
+pull.rebase=false
+credential.helper=manager-core
+credential.https://dev.azure.com.usehttppath=true
+init.defaultbranch=master
+filter.lfs.clean=git-lfs clean -- %f
+filter.lfs.smudge=git-lfs smudge -- %f
+filter.lfs.process=git-lfs filter-process
+filter.lfs.required=true
+user.name=EgorK
+user.email=egor_kor05@mail.ru
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.symlinks=false
+core.ignorecase=true
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ touch 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git add 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git restore --stage 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git diff
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git diff --cached 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git diff 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ echo "123">>2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git diff 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ touch 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git add .
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git commit -m"2"
+[master 3c9b458] 2
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ echo "123">>2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git diff 2.txt
+warning: in the working copy of '2.txt', LF will be replaced by CRLF the next time Git touches it
+diff --git a/2.txt b/2.txt
+index e69de29..190a180 100644
+--- a/2.txt
++++ b/2.txt
+@@ -0,0 +1 @@
++123
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git restore 2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git add .
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git config --global user.name "EK"
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git branch --list
+* master
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git branch profi
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git checkout profi
+Switched to branch 'profi'
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ git checkout -b aa
+Switched to a new branch 'aa'
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (aa)
+$ git branch -d aa
+error: Cannot delete branch 'aa' checked out at 'C:/Users/ASUS/Desktop/git'
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (aa)
+$ git checkout profi
+Switched to branch 'profi'
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ git branch -d aa
+Deleted branch aa (was 3c9b458).
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ git branch
+  master
+* profi
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ git merge master
+Already up to date.
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ gitk --all
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ ls
+1.txt  2.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ vim 1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ git add .
+warning: in the working copy of '1.txt', LF will be replaced by CRLF the next time Git touches it
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ git commit -m "3"
+[profi df1f7da] 3
+ 1 file changed, 1 insertion(+)
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (profi)
+$ git checkout master
+Switched to branch 'master'
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ vim 1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git add .
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git commit -m "4"
+[master 0190724] 4
+ 1 file changed, 1 insertion(+)
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ gitk --all
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git merge -m "merging" profi
+Auto-merging 1.txt
+CONFLICT (content): Merge conflict in 1.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master|MERGING)
+$ cat 1.txt
+hello
+world
+<<<<<<< HEAD
+egor
+=======
+progect
+>>>>>>> profi
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master|MERGING)
+$ git add .
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master|MERGING)
+$ git merge --continue
+[master 21a12c1] merging
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ gitk --all
+git log
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git log
+commit 21a12c1dd1f0f15762b8eb06be53ef1ee94f3d0a (HEAD -> master)
+Merge: 0190724 df1f7da
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:51:23 2022 +0300
+
+    merging
+
+commit 01907243e0732b50eab78cd29160e2af27192baa
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:47:43 2022 +0300
+
+    4
+
+commit df1f7daa3346879ba42c1133bf738b5e878d1495 (profi)
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:46:40 2022 +0300
+
+    3
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git log
+commit 21a12c1dd1f0f15762b8eb06be53ef1ee94f3d0a (HEAD -> master)
+Merge: 0190724 df1f7da
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:51:23 2022 +0300
+
+    merging
+
+commit 01907243e0732b50eab78cd29160e2af27192baa
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:47:43 2022 +0300
+
+    4
+
+commit df1f7daa3346879ba42c1133bf738b5e878d1495 (profi)
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:46:40 2022 +0300
+
+    3
+
+commit 3c9b4583a1354ebe678a912e4439ea02ccdf8438
+Author: EgorK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:35:07 2022 +0300
+
+    2
+
+commit 2da64a20df8661872b908c89ddbd35fdb73962f6
+Author: EgorK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:23:53 2022 +0300
+
+    changes 2
+
+commit 46f19d619f0275b9b97ec87ee6565a660b3a6f0a
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git checkout 2da64a20df8661872b908c89ddbd35fdb73962f6
+Note: switching to '2da64a20df8661872b908c89ddbd35fdb73962f6'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 2da64a2 changes 2
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git ((2da64a2...))
+$ ls
+1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git ((2da64a2...))
+$ git checkout master
+Previous HEAD position was 2da64a2 changes 2
+Switched to branch 'master'
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git branch new
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ vim 1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git add .
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git commit -m "4"
+[master 33fd63c] 4
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git checkout new
+Switched to branch 'new'
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (new)
+$ vim 1.txt
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (new)
+$ git add .
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (new)
+$ git commit -m "5"
+[new 7a10a28] 5
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (new)
+$ git checkout master
+Switched to branch 'master'
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git rebase new
+Auto-merging 1.txt
+CONFLICT (content): Merge conflict in 1.txt
+error: could not apply 33fd63c... 4
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 33fd63c... 4
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master|REBASE 1/1)
+$ git add .
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master|REBASE 1/1)
+$ git rebase --continue
+[detached HEAD 186584a] 4
+ 1 file changed, 2 insertions(+)
+Successfully rebased and updated refs/heads/master.
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ gitk --all
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git log
+commit 186584aea3846152da123d3119b6bc5558e904b1 (HEAD -> master)
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:58:19 2022 +0300
+
+    4
+
+commit 7a10a284b4763dd7c4e5ee07b4d2baaf35c776df (new)
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:59:11 2022 +0300
+
+    5
+
+commit 21a12c1dd1f0f15762b8eb06be53ef1ee94f3d0a
+Merge: 0190724 df1f7da
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:51:23 2022 +0300
+
+    merging
+:...skipping...
+commit 186584aea3846152da123d3119b6bc5558e904b1 (HEAD -> master)
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:58:19 2022 +0300
+
+    4
+
+commit 7a10a284b4763dd7c4e5ee07b4d2baaf35c776df (new)
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:59:11 2022 +0300
+
+    5
+
+commit 21a12c1dd1f0f15762b8eb06be53ef1ee94f3d0a
+Merge: 0190724 df1f7da
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:51:23 2022 +0300
+
+    merging
+
+commit 01907243e0732b50eab78cd29160e2af27192baa
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:47:43 2022 +0300
+
+    4
+
+commit df1f7daa3346879ba42c1133bf738b5e878d1495 (profi)
+Author: EK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:46:40 2022 +0300
+
+    3
+
+commit 3c9b4583a1354ebe678a912e4439ea02ccdf8438
+Author: EgorK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:35:07 2022 +0300
+
+    2
+
+commit 2da64a20df8661872b908c89ddbd35fdb73962f6
+Author: EgorK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:23:53 2022 +0300
+
+    changes 2
+
+commit 46f19d619f0275b9b97ec87ee6565a660b3a6f0a
+Author: EgorK <egor_kor05@mail.ru>
+Date:   Thu Nov 3 14:23:10 2022 +0300
+
+    changes 1
+~
+~
+~
+~
+~
+~
+~
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git remote add origin https://github.com/EgorKorn/laba2.git
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git push head
+fatal: 'head' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git push HEAD
+fatal: 'HEAD' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$ git push origin HEAD
+Enumerating objects: 24, done.
+Counting objects: 100% (24/24), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (14/14), done.
+Writing objects: 100% (24/24), 1.88 KiB | 960.00 KiB/s, done.
+Total 24 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/EgorKorn/laba2.git
+ * [new branch]      HEAD -> master
+
+ASUS@DESKTOP-U8E7MKG MINGW64 ~/desktop/git (master)
+$
